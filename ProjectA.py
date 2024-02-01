@@ -101,7 +101,7 @@ def fenetre():
     nomd = tkinter.Label(fenetre1, text='Exclusive possession and distribution of Dos Reis Théo ®', font=("Arial", 20),
                          bg="#3D40EC", fg="white")
     nomd.place(relx=1.0, rely=1.0, anchor=SE)
-    versionshow = tkinter.Label(fenetre1, text='Version 1.1.0', font=("Arial", 20), bg="#3D40EC", fg="white")
+    versionshow = tkinter.Label(fenetre1, text='Version 1.1.1', font=("Arial", 20), bg="#3D40EC", fg="white")
     versionshow.place(relx=0, rely=1.0, anchor=SW)
     buttonquit = Button(frame, text="Quit", font=("Arial", 25), bg="white", fg="#3D40EC", command=quit)
     buttonquit.pack(pady=25, fill=X, anchor=S)
