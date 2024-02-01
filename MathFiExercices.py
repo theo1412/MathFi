@@ -263,7 +263,7 @@ def acceuil():
     fenetre2.title("Test Médical")
     fenetre2.geometry("1080x720")
     fenetre2.minsize(480, 360)
-    fenetre2.iconbitmap("health.png")
+    fenetre2.iconbitmap("logo.ico")
     fenetre2.config(background='#1B65C4')
     mainframe = tkinter.LabelFrame(fenetre2, text="Symptomes", width=500, height=450)
     mainframe.pack(expand=YES)
