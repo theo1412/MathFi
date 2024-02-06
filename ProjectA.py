@@ -3,7 +3,6 @@ import tkinter
 from tkinter.ttk import *
 from tkinter import *
 
-global fenetre1, fenetre2, covp
 
 
 def covid1():
@@ -11,39 +10,47 @@ def covid1():
     fenetre1.destroy()
     covidpage()
 
+
 def backmainf1():
     global fenetre1, fenetre2
     fenetre2.destroy()
     fenetre1()
 
+
 def quit():
     global fenetre1
     fenetre1.destroy()
+
 
 def covid2():
     global fenetre2, covid
     fenetre2.destroy()
     covidpage()
 
+
 def test():
     global fenetre1, fenetre2
     fenetre1.destroy()
     acceuil()
+
 
 def back():
     global fenetre2, fenetre1
     fenetre2.destroy()
     fenetre()
 
+
 def back3():
     global fenetre3, fenetre1
     fenetre3.destroy()
     fenetre()
 
+
 def backcov():
     global covid
     covid.destroy()
     covidpage()
+
 
 def show_about():
     about_window = tkinter.Toplevel(fenetre1)
@@ -52,6 +59,7 @@ def show_about():
     about_window.title("Infos très très utiles")
     lb = tkinter.Label(about_window, text="All my homies hate Louis \n wlh c'est vrai")
     lb.pack()
+
 
 def show_useless():
     useless_window = tkinter.Toplevel(fenetre1)
@@ -62,48 +70,61 @@ def show_useless():
                        text="Un être humain possède environ 639 muscles alors qu’une chenille en posséderait près de 4000!\n Pour échapper à l’emprise des mâchoires d’un crocodile, poussez vos pouces dans ses yeux, il vous lâchera  immédiatement.\n Les chauves-souris tournent toujours à gauche lorsqu’elles sortent d’une grotte.\n Une personne passe en moyenne 6 mois de sa vie assis devant un feu rouge.\n Si vous mâchez un chewing-gum en épluchant des oignons, cela vous empêchera de pleurer.\n Il y a plus de personnes tuées chaque année par des noix de coco qui tombent de l’arbre que par des attaques de requins. \n Dans le règlement de Facebook, il est stipulé qu’on peut travailler en chaussettes.")
     lb.pack()
 
+
 def yearsimpleswitch():
-    global yearsimple,fenetre2
+    global yearsimple, fenetre2
     fenetre2.destroy()
     yearsimple()
 
+
 def yearcompoundswitch():
-    global yearcompound,fenetre3
+    global yearcompound, fenetre3
     fenetre3.destroy()
     yearcompound()
+
 
 def ratecompoundswitch():
     global fenetre3, ratecompound
     fenetre3.destroy()
     ratecompound()
 
-def ratesimpleswitch():
+
+def ratesimpleswitch1():
     global fenetre2, ratesimple
     fenetre2.destroy()
     ratesimple()
+
 
 def yearsimpleback():
     global yearsimple, fenetre2, fenetre1
     yearsimple.destroy()
     fenetre()
 
+
 def yearcompoundback():
     global yearcompound, fenetre2, fenetre1, covidpage
     yearcompound.destroy()
     covidpage()
+
 
 def ratecompoundback():
     global yearcompound, fenetre2, fenetre1, covidpage, ratecompound
     ratecompound.destroy()
     covidpage()
 
+
 def ratesimpleback():
     global yearcompound, fenetre2, fenetre1, covidpage, ratesimple
     ratesimple.destroy()
-    covidpage()
+    fenetre()
+
+
+
+
+
 
 def fenetre():
-    global fenetre1
+    global fenetre2, fenetre1, covid, fenetre3, yearsimple, yearcompound, ratecompound, ratesimple, rateacturial
     fenetre1 = Tk()
 
     fenetre1.title("Project A")
@@ -120,11 +141,13 @@ def fenetre():
     button.pack(pady=25, fill=X)
     button2 = Button(frame, text="Compounds Interest", font=("Arial", 25), bg="white", fg="#3D40EC", command=covid1)
     button2.pack(pady=25, fill=X)
+    button = Button(frame, text="Acturial Rate", font=("Arial", 25), bg="white", fg="#3D40EC", command=rateacturial)
+    button.pack(pady=25, fill=X)
     frame.pack(expand=YES)
     nomd = tkinter.Label(fenetre1, text='Exclusive possession and distribution of\nDos Reis Théo®', font=("Arial", 15),
                          bg="#3D40EC", fg="white")
     nomd.place(relx=1.0, rely=1.0, anchor=SE)
-    versionshow = tkinter.Label(fenetre1, text='Version 1.2.1', font=("Arial", 20), bg="#3D40EC", fg="white")
+    versionshow = tkinter.Label(fenetre1, text='Version 1.2.2', font=("Arial", 20), bg="#3D40EC", fg="white")
     versionshow.place(relx=0, rely=1.0, anchor=SW)
     buttonquit = Button(frame, text="Quit", font=("Arial", 25), bg="white", fg="#3D40EC", command=quit)
     buttonquit.pack(pady=25, fill=X, anchor=S)
@@ -146,11 +169,12 @@ def fenetre():
     fenetre1.config(menu=mainmenu)
     fenetre1.mainloop()
 
+
 def acceuil():
-    global fenetre2, fenetre1, covp
+    global fenetre2, fenetre1, covid, fenetre3, yearsimple, yearcompound, ratecompound, ratesimple, rateacturial, covp
     fenetre2 = Tk()
 
-    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça']
+    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça', 'AllMyHomiesHatelouis']
     listeerreur = ["That's wrong", "You're soo bad", "Even Louis would have done better", "NOOOOOOOOOOOOOOOOOOOOOOOO"]
     entreprise = choice(listeentreprise)
     PV = randint(1000, 50000)
@@ -165,10 +189,12 @@ def acceuil():
     mainframe = tkinter.LabelFrame(fenetre2, text="Exercice", width=500, height=450)
     mainframe.pack(expand=YES)
 
-    test3 = tkinter.Label(mainframe, text="You have money lying around in your bank account and decide to make an investment.\n So you decide to call the bank " + str(
-                        entreprise) + "\nThis company offers you an initial investment of " + str(
-                        PV) + " $ at a rate of " + str(
-                        rate * 100) + "%" + "\nHow much money will you have after " + str(years) + " years ?\n"+"\n\nRound to the hundredths\n", font=("ARIAL_BLUR", 20))
+    test3 = tkinter.Label(mainframe,
+                          text="You have money lying around in your bank account and decide to make an investment.\n So you decide to call the bank " + str(
+                              entreprise) + "\nThis company offers you an initial investment of " + str(
+                              PV) + " $ at a rate of " + str(
+                              rate * 100) + "%" + "\nHow much money will you have after " + str(
+                              years) + " years ?\n" + "\n\nRound to the hundredths\n", font=("ARIAL_BLUR", 20))
     test3.pack()
 
     entry = tkinter.Entry(mainframe, width=30, justify=CENTER, font=("ARIAL_BLUR", 20))
@@ -176,29 +202,29 @@ def acceuil():
 
     def checkresult():
 
-        check3 = round((PV*(1+years+rate)),2)
+        check3 = round((PV * (1 + years + rate)), 2)
         erreur = choice(listeerreur)
         if str(entry.get()) == str(check3):
             resultshow = "That's the good anwser"
         else:
             resultshow = erreur
-        print (round((PV * years * rate)+PV),2)
-        print (entry.get())
-        resultlabel = tkinter.Label(mainframe, text=resultshow, font=("ARIAL_BLUR",20))
+        print(round((PV * years * rate) + PV), 2)
+        print(entry.get())
+        resultlabel = tkinter.Label(mainframe, text=resultshow, font=("ARIAL_BLUR", 20))
         resultlabel.pack_forget()
         resultlabel.pack()
 
-
-
     skiptext = tkinter.Label(mainframe, text="", font=("ARIAL_BLUR", 20))
     skiptext.pack()
-    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#1B65C4', command=checkresult, font=("ARIAL_BLUR", 15))
+    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#1B65C4', command=checkresult,
+                          font=("ARIAL_BLUR", 15))
     start_button.pack()
-    year_button = Button(mainframe, text="Year Exercise", bg='white', fg='#1B65C4', font=("ARIAL_BLUR", 15), command=yearsimpleswitch)
+    year_button = Button(mainframe, text="Year Exercise", bg='white', fg='#1B65C4', font=("ARIAL_BLUR", 15),
+                         command=yearsimple)
     year_button.place(relx=1.0, rely=1.0, anchor=SE)
-    rate_button = Button(mainframe, text="Rate Exercise", bg='white', fg='#1B65C4', font=("ARIAL_BLUR", 15), command=ratesimpleswitch)
+    rate_button = Button(mainframe, text="Rate Exercise", bg='white', fg='#1B65C4', font=("ARIAL_BLUR", 15),
+                         command=ratesimple)
     rate_button.place(relx=0, rely=1.0, anchor=SW)
-
 
     refreshb = Button(fenetre2, text='Quitter', command=back)
     refreshb.pack()
@@ -218,12 +244,14 @@ def acceuil():
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
 
     fenetre2.config(menu=mainmenu)
+    fenetre2.mainloop()
+
 
 def covidpage():
     global fenetre2, fenetre1, covid, fenetre3
     fenetre3 = Tk()
 
-    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça']
+    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça', 'AllMyHomiesHatelouis']
     listeerreur = ["That's wrong", "You're soo bad", "Even Louis would have done better", "NOOOOOOOOOOOOOOOOOOOOOOOO"]
     entreprise = choice(listeentreprise)
     PV = randint(1000, 50000)
@@ -242,7 +270,8 @@ def covidpage():
                           text="You have money lying around in your bank account and decide to make an investment.\n So you decide to call the bank " + str(
                               entreprise) + "\nThis company offers you an initial investment of " + str(
                               PV) + " $ at a rate of " + str(
-                              rate * 100) + "%" + "\nHow much money will you have after " + str(years) + " years ?"+"\n\nRound to the hundredths\n",
+                              rate * 100) + "%" + "\nHow much money will you have after " + str(
+                              years) + " years ?" + "\n\nRound to the hundredths\n",
                           font=("ARIAL_BLUR", 20))
     test3.pack()
 
@@ -252,23 +281,26 @@ def covidpage():
     def checkresult():
 
         erreur = choice(listeerreur)
-        check3 = round(PV*((1+rate)**years),2)
+        check3 = round(PV * ((1 + rate) ** years), 2)
         if str(entry.get()) == str(check3):
             resultshow = "That's the good anwser"
         else:
             resultshow = erreur
-        print(round(PV*((1+rate)**years),2))
+        print(round(PV * ((1 + rate) ** years), 2))
         print(entry.get())
         resultlabel = tkinter.Label(mainframe, text=resultshow, font=("ARIAL_BLUR", 20))
         resultlabel.pack()
 
     skiptext = tkinter.Label(mainframe, text="", font=("ARIAL_BLUR", 20))
     skiptext.pack()
-    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#F37D06', command=checkresult, font=("ARIAL_BLUR", 15))
+    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#F37D06', command=checkresult,
+                          font=("ARIAL_BLUR", 15))
     start_button.pack()
-    year_button = Button(mainframe, text="Year Exercise", bg='white', fg='#F37D06', font=("ARIAL_BLUR", 15), command=yearcompoundswitch)
+    year_button = Button(mainframe, text="Year Exercise", bg='white', fg='#F37D06', font=("ARIAL_BLUR", 15),
+                         command=yearcompound)
     year_button.place(relx=1.0, rely=1.0, anchor=SE)
-    rate_button = Button(mainframe, text="Rate Exercise", bg='white', fg='#F37D06', font=("ARIAL_BLUR", 15), command=ratecompoundswitch)
+    rate_button = Button(mainframe, text="Rate Exercise", bg='white', fg='#F37D06', font=("ARIAL_BLUR", 15),
+                         command=ratecompound)
     rate_button.place(relx=0, rely=1.0, anchor=SW)
 
     refreshb = Button(fenetre3, text='Quitter', command=back3)
@@ -289,12 +321,14 @@ def covidpage():
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
 
     fenetre3.config(menu=mainmenu)
+    fenetre3.mainloop()
+
 
 def yearsimple():
     global fenetre2, fenetre1, covid, fenetre3, yearsimple
     yearsimple = Tk()
 
-    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça']
+    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça', 'AllMyHomiesHatelouis']
     listeerreur = ["That's wrong", "You're soo bad", "Even Louis would have done better", "NOOOOOOOOOOOOOOOOOOOOOOOO"]
     entreprise = choice(listeentreprise)
     PV = randint(1000, 50000)
@@ -314,7 +348,9 @@ def yearsimple():
                           text="You have money lying around in your bank account and decide to make an investment.\n So you decide to call the bank " + str(
                               entreprise) + "\nThis company offers you an initial investment of " + str(
                               PV) + " $ at a rate of " + str(
-                              rate * 100) + "%" + "\nAt the end of the investment you will have " + str(check3) + " $\n How many years will you have to invest to obtain this return ?\nRound to the nearest unit\n" , font=("ARIAL_BLUR", 20))
+                              rate * 100) + "%" + "\nAt the end of the investment you will have " + str(
+                              check3) + " $\n How many years will you have to invest to obtain this return ?\nRound to the nearest unit\n",
+                          font=("ARIAL_BLUR", 20))
     test3.pack()
 
     entry = tkinter.Entry(mainframe, width=30, justify=CENTER, font=("ARIAL_BLUR", 20))
@@ -334,11 +370,10 @@ def yearsimple():
 
     skiptext = tkinter.Label(mainframe, text="", font=("ARIAL_BLUR", 20))
     skiptext.pack()
-    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#80F306', command=checkresult, font=("ARIAL_BLUR", 15))
+    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#80F306', command=checkresult,
+                          font=("ARIAL_BLUR", 15))
     start_button.pack()
 
-    refreshb = Button(yearsimple, text='Quitter', command=yearsimpleback)
-    refreshb.pack()
 
     mainmenu = tkinter.Menu(yearsimple)
 
@@ -355,12 +390,14 @@ def yearsimple():
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
 
     yearsimple.config(menu=mainmenu)
+    yearsimple.mainloop()
+
 
 def yearcompound():
     global fenetre2, fenetre1, covid, fenetre3, yearsimple, yearcompound
     yearcompound = Tk()
 
-    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça']
+    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça', 'AllMyHomiesHatelouis']
     listeerreur = ["That's wrong", "You're soo bad", "Even Louis would have done better", "NOOOOOOOOOOOOOOOOOOOOOOOO"]
     entreprise = choice(listeentreprise)
     PV = randint(1000, 50000)
@@ -380,7 +417,9 @@ def yearcompound():
                           text="You have money lying around in your bank account and decide to make an investment.\n So you decide to call the bank " + str(
                               entreprise) + "\nThis company offers you an initial investment of " + str(
                               PV) + " $ at a rate of " + str(
-                              rate * 100) + "%" + "\nAt the end of the investment you will have " + str(check3) + " $\n How many years will you have to invest to obtain this return ?\nRound to the nearest unit\n" , font=("ARIAL_BLUR", 20))
+                              rate * 100) + "%" + "\nAt the end of the investment you will have " + str(
+                              check3) + " $\n How many years will you have to invest to obtain this return ?\nRound to the nearest unit\n",
+                          font=("ARIAL_BLUR", 20))
     test3.pack()
 
     entry = tkinter.Entry(mainframe, width=30, justify=CENTER, font=("ARIAL_BLUR", 20))
@@ -400,11 +439,10 @@ def yearcompound():
 
     skiptext = tkinter.Label(mainframe, text="", font=("ARIAL_BLUR", 20))
     skiptext.pack()
-    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#F306EF', command=checkresult, font=("ARIAL_BLUR", 15))
+    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#F306EF', command=checkresult,
+                          font=("ARIAL_BLUR", 15))
     start_button.pack()
 
-    refreshb = Button(yearcompound, text='Quitter', command=yearcompoundback)
-    refreshb.pack()
 
     mainmenu = tkinter.Menu(yearcompound)
 
@@ -421,18 +459,20 @@ def yearcompound():
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
 
     yearcompound.config(menu=mainmenu)
+    yearcompound.mainloop()
+
 
 def ratecompound():
     global fenetre2, fenetre1, covid, fenetre3, yearsimple, yearcompound, ratecompound
     ratecompound = Tk()
 
-    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça']
+    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça', 'AllMyHomiesHatelouis']
     listeerreur = ["That's wrong", "You're soo bad", "Even Louis would have done better", "NOOOOOOOOOOOOOOOOOOOOOOOO"]
     entreprise = choice(listeentreprise)
     PV = randint(1000, 50000)
     years = randint(2, 15)
     rate = (round(randint(1, 20)) / 100)
-    check3 = round(PV*((1+rate)**years),2)
+    check3 = round(PV * ((1 + rate) ** years), 2)
 
     ratecompound.title("Compound Interest Years")
     ratecompound.geometry("1080x720")
@@ -445,7 +485,10 @@ def ratecompound():
     test3 = tkinter.Label(mainframe,
                           text="You have money lying around in your bank account and decide to make an investment.\n So you decide to call the bank " + str(
                               entreprise) + "\nThis company offers you an initial investment of " + str(
-                              PV) + " $ for " + str(years) + " years" + "\nAt the end of the investment you will have " + str(check3) + " $\n What was the interest rate of the investment ?\nRound to the nearest unit\n" , font=("ARIAL_BLUR", 20))
+                              PV) + " $ for " + str(
+                              years) + " years" + "\nAt the end of the investment you will have " + str(
+                              check3) + " $\n What was the interest rate of the investment ?\nRound to the nearest unit\n",
+                          font=("ARIAL_BLUR", 20))
     test3.pack()
 
     entry = tkinter.Entry(mainframe, width=30, justify=CENTER, font=("ARIAL_BLUR", 20))
@@ -454,22 +497,20 @@ def ratecompound():
     def checkresult():
 
         erreur = choice(listeerreur)
-        if str(entry.get()) == str(round(rate*100)):
+        if str(entry.get()) == str(round(rate * 100)):
             resultshow = "That's the good anwser"
         else:
             resultshow = erreur
-        print(round(rate*100))
+        print(round(rate * 100))
         print(entry.get())
         resultlabel = tkinter.Label(mainframe, text=resultshow, font=("ARIAL_BLUR", 20))
         resultlabel.pack()
 
     skiptext = tkinter.Label(mainframe, text="", font=("ARIAL_BLUR", 20))
     skiptext.pack()
-    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#F30606', command=checkresult, font=("ARIAL_BLUR", 15))
+    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#F30606', command=checkresult,
+                          font=("ARIAL_BLUR", 15))
     start_button.pack()
-
-    refreshb = Button(ratecompound, text='Quitter', command=ratecompoundback)
-    refreshb.pack()
 
     mainmenu = tkinter.Menu(ratecompound)
 
@@ -486,12 +527,14 @@ def ratecompound():
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
 
     ratecompound.config(menu=mainmenu)
+    ratecompound.mainloop()
+
 
 def ratesimple():
     global fenetre2, fenetre1, covid, fenetre3, yearsimple, yearcompound, ratecompound, ratesimple
     ratesimple = Tk()
 
-    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça']
+    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça', 'AllMyHomiesHatelouis']
     listeerreur = ["That's wrong", "You're soo bad", "Even Louis would have done better", "NOOOOOOOOOOOOOOOOOOOOOOOO"]
     entreprise = choice(listeentreprise)
     PV = randint(1000, 50000)
@@ -510,7 +553,10 @@ def ratesimple():
     test3 = tkinter.Label(mainframe,
                           text="You have money lying around in your bank account and decide to make an investment.\n So you decide to call the bank " + str(
                               entreprise) + "\nThis company offers you an initial investment of " + str(
-                              PV) + " $ for " + str(years) + " years" + "\nAt the end of the investment you will have " + str(check3) + " $\n What was the interest rate of the investment ?\nRound to the nearest unit\n" , font=("ARIAL_BLUR", 20))
+                              PV) + " $ for " + str(
+                              years) + " years" + "\nAt the end of the investment you will have " + str(
+                              check3) + " $\n What was the interest rate of the investment ?\nRound to the nearest unit\n",
+                          font=("ARIAL_BLUR", 20))
     test3.pack()
 
     entry = tkinter.Entry(mainframe, width=30, justify=CENTER, font=("ARIAL_BLUR", 20))
@@ -519,18 +565,19 @@ def ratesimple():
     def checkresult():
 
         erreur = choice(listeerreur)
-        if str(entry.get()) == str(round(rate*100)):
+        if str(entry.get()) == str(round(rate * 100)):
             resultshow = "That's the good anwser"
         else:
             resultshow = erreur
-        print(round(rate*100))
+        print(round(rate * 100))
         print(entry.get())
         resultlabel = tkinter.Label(mainframe, text=resultshow, font=("ARIAL_BLUR", 20))
         resultlabel.pack()
 
     skiptext = tkinter.Label(mainframe, text="", font=("ARIAL_BLUR", 20))
     skiptext.pack()
-    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#06F3B6', command=checkresult, font=("ARIAL_BLUR", 15))
+    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#06F3B6', command=checkresult,
+                          font=("ARIAL_BLUR", 15))
     start_button.pack()
 
     refreshb = Button(ratesimple, text='Quitter', command=ratesimpleback)
@@ -551,8 +598,77 @@ def ratesimple():
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
 
     ratesimple.config(menu=mainmenu)
+    ratesimple.mainloop()
+
+
+def rateacturial():
+    global fenetre2, fenetre1, covid, fenetre3, yearsimple, yearcompound, ratecompound, ratesimple, rateacturial
+    rateacturial = Tk()
+
+    listeentreprise = ['AllahMourim', 'SuperBock', 'SUUUUUUUUUU', 'Trouel=on', 'VivaChouriça', 'AllMyHomiesHatelouis']
+    listeerreur = ["That's wrong", "You're soo bad", "Even Louis would have done better", "NOOOOOOOOOOOOOOOOOOOOOOOO"]
+    entreprise = choice(listeentreprise)
+    PV = randint(1000, 50000)
+    years = randint(2, 15)
+    rate = (round(randint(1, 20)) / 100)
+    check3 = round((PV * (1 + years + rate)), 2)
+
+    rateacturial.title("Rate Acturial")
+    rateacturial.geometry("1080x720")
+    rateacturial.minsize(600, 400)
+    rateacturial.iconbitmap("logo.ico")
+    rateacturial.config(background='#5873D0')
+    mainframe = tkinter.LabelFrame(rateacturial, text="Exercice", width=500, height=450)
+    mainframe.pack(expand=YES)
+
+    test3 = tkinter.Label(mainframe,
+                          text="You have money lying around in your bank account and decide to make an investment.\n So you decide to call the bank " + str(
+                              entreprise) + "\nThis company offers you an initial investment of " + str(
+                              PV) + " $ for " + str(
+                              years) + " years" + "\nAt the end of the investment you will have " + str(
+                              check3) + " $\n What was the interest rate of the investment ?\nRound to the nearest unit\n",
+                          font=("ARIAL_BLUR", 20))
+    test3.pack()
+
+    entry = tkinter.Entry(mainframe, width=30, justify=CENTER, font=("ARIAL_BLUR", 20))
+    entry.pack()
+
+    def checkresult():
+
+        erreur = choice(listeerreur)
+        if str(entry.get()) == str(round(rate * 100)):
+            resultshow = "That's the good anwser"
+        else:
+            resultshow = erreur
+        print(round(rate * 100))
+        print(entry.get())
+        resultlabel = tkinter.Label(mainframe, text=resultshow, font=("ARIAL_BLUR", 20))
+        resultlabel.pack()
+
+    skiptext = tkinter.Label(mainframe, text="", font=("ARIAL_BLUR", 20))
+    skiptext.pack()
+    start_button = Button(mainframe, text="Démarrer", bg='white', fg='#5873D0', command=checkresult,
+                          font=("ARIAL_BLUR", 15))
+    start_button.pack()
+
+
+    mainmenu = tkinter.Menu(rateacturial)
+
+    first_menu = tkinter.Menu(mainmenu, tearoff=0)
+    first_menu.add_command(label="Compound Interest")
+    first_menu.add_command(label="Simple Interest", command=backmainf1)
+    first_menu.add_separator()
+    first_menu.add_command(label="Quitter", command=rateacturial.quit)
+    second_menu = tkinter.Menu(mainmenu, tearoff=0)
+    second_menu.add_command(label="Infos utiles", command=show_about)
+    second_menu.add_command(label="Infos pas utiles mdrr", command=show_useless)
+
+    mainmenu.add_cascade(label="Menu Principal", menu=first_menu)
+    mainmenu.add_cascade(label="A Propos", menu=second_menu)
+
+    rateacturial.config(menu=mainmenu)
+    rateacturial.mainloop()
+
 
 if __name__ == '__main__':
     fenetre()
-
-
