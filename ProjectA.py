@@ -3,8 +3,6 @@ import tkinter
 from tkinter.ttk import *
 from tkinter import *
 
-
-
 def covid1():
     global fenetre1, covidpage
     fenetre1.destroy()
@@ -56,18 +54,17 @@ def show_about():
     about_window = tkinter.Toplevel(fenetre1)
     about_window.geometry("650x100")
     about_window.resizable(width=0, height=0)
-    about_window.title("Infos très très utiles")
-    lb = tkinter.Label(about_window, text="All my homies hate Louis \n wlh c'est vrai")
+    about_window.title("Usefull Info")
+    lb = tkinter.Label(about_window, text="All my homies hate Louis \n wlh c'est vrai",)
     lb.pack()
 
 
 def show_useless():
     useless_window = tkinter.Toplevel(fenetre1)
-    useless_window.geometry("800x125")
+    useless_window.geometry("600x200")
     useless_window.resizable(width=0, height=0)
-    useless_window.title("Infos inutiles mdrr")
-    lb = tkinter.Label(useless_window,
-                       text="Un être humain possède environ 639 muscles alors qu’une chenille en posséderait près de 4000!\n Pour échapper à l’emprise des mâchoires d’un crocodile, poussez vos pouces dans ses yeux, il vous lâchera  immédiatement.\n Les chauves-souris tournent toujours à gauche lorsqu’elles sortent d’une grotte.\n Une personne passe en moyenne 6 mois de sa vie assis devant un feu rouge.\n Si vous mâchez un chewing-gum en épluchant des oignons, cela vous empêchera de pleurer.\n Il y a plus de personnes tuées chaque année par des noix de coco qui tombent de l’arbre que par des attaques de requins. \n Dans le règlement de Facebook, il est stipulé qu’on peut travailler en chaussettes.")
+    useless_window.title("Useless Info")
+    lb = tkinter.Label(useless_window, text="Simple Interest : FV = PV  (1 + t * r)\nCompound Interest : FV = PV * (1 + r)"+' \u1D57'"\nr act = (FV/PV) "+'\u207d '+'\u00b9 '+'\u1d35 '+'\u1D57 '+'\u207e '"  -1\nr arith = (FV - PV) / (PV * t)\n\nEquivalence between Acturial Rate and Arithmetic Rate:\nFV * (1 + t * r arith) = FV * (1 + r act)"+' \u1D57'+"\n(1 + t * r arith) = (1 + r act)"+' \u1D57', font=("Arial", 20))
     lb.pack()
 
 
@@ -120,18 +117,17 @@ def ratesimpleback():
 
 
 
-
-
-
 def fenetre():
     global fenetre2, fenetre1, covid, fenetre3, yearsimple, yearcompound, ratecompound, ratesimple, rateacturial
     fenetre1 = Tk()
+
 
     fenetre1.title("Project A")
     fenetre1.geometry("1080x720")
     fenetre1.minsize(480, 360)
     fenetre1.iconbitmap("logo.ico")
     fenetre1.config(background='#3D40EC')
+
     frame = Frame(fenetre1, background='#3D40EC')
     label_title = Label(frame, text="Project A", font=("Arial", 50), background="#3D40EC", fg="white")
     label_title.pack()
@@ -147,7 +143,7 @@ def fenetre():
     nomd = tkinter.Label(fenetre1, text='Exclusive possession and distribution of\nDos Reis Théo®', font=("Arial", 15),
                          bg="#3D40EC", fg="white")
     nomd.place(relx=1.0, rely=1.0, anchor=SE)
-    versionshow = tkinter.Label(fenetre1, text='Version 1.2.2', font=("Arial", 20), bg="#3D40EC", fg="white")
+    versionshow = tkinter.Label(fenetre1, text='Version 1.2.3', font=("Arial", 20), bg="#3D40EC", fg="white")
     versionshow.place(relx=0, rely=1.0, anchor=SW)
     buttonquit = Button(frame, text="Quit", font=("Arial", 25), bg="white", fg="#3D40EC", command=quit)
     buttonquit.pack(pady=25, fill=X, anchor=S)
@@ -160,8 +156,8 @@ def fenetre():
     first_menu.add_separator()
     first_menu.add_command(label="Quitter", command=fenetre1.quit)
     second_menu = tkinter.Menu(mainmenu, tearoff=0)
-    second_menu.add_command(label="Infos utiles", command=show_about)
-    second_menu.add_command(label="Infos pas utiles mdrr", command=show_useless)
+    second_menu.add_command(label="Usefull Info", command=show_about)
+    second_menu.add_command(label="Useless Info", command=show_useless)
 
     mainmenu.add_cascade(label="Menu Principal", menu=first_menu)
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
@@ -237,8 +233,8 @@ def acceuil():
     first_menu.add_separator()
     first_menu.add_command(label="Quitter", command=fenetre2.quit)
     second_menu = tkinter.Menu(mainmenu, tearoff=0)
-    second_menu.add_command(label="Infos utiles", command=show_about)
-    second_menu.add_command(label="Infos pas utiles mdrr", command=show_useless)
+    second_menu.add_command(label="Usefull Info", command=show_about)
+    second_menu.add_command(label="Useless Info", command=show_useless)
 
     mainmenu.add_cascade(label="Menu Principal", menu=first_menu)
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
@@ -314,8 +310,8 @@ def covidpage():
     first_menu.add_separator()
     first_menu.add_command(label="Quitter", command=fenetre3.quit)
     second_menu = tkinter.Menu(mainmenu, tearoff=0)
-    second_menu.add_command(label="Infos utiles", command=show_about)
-    second_menu.add_command(label="Infos pas utiles mdrr", command=show_useless)
+    second_menu.add_command(label="Usefull Info", command=show_about)
+    second_menu.add_command(label="Useless Info", command=show_useless)
 
     mainmenu.add_cascade(label="Menu Principal", menu=first_menu)
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
@@ -383,8 +379,8 @@ def yearsimple():
     first_menu.add_separator()
     first_menu.add_command(label="Quitter", command=yearsimple.quit)
     second_menu = tkinter.Menu(mainmenu, tearoff=0)
-    second_menu.add_command(label="Infos utiles", command=show_about)
-    second_menu.add_command(label="Infos pas utiles mdrr", command=show_useless)
+    second_menu.add_command(label="Usefull Info", command=show_about)
+    second_menu.add_command(label="Useless Info", command=show_useless)
 
     mainmenu.add_cascade(label="Menu Principal", menu=first_menu)
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
@@ -452,8 +448,8 @@ def yearcompound():
     first_menu.add_separator()
     first_menu.add_command(label="Quitter", command=yearcompound.quit)
     second_menu = tkinter.Menu(mainmenu, tearoff=0)
-    second_menu.add_command(label="Infos utiles", command=show_about)
-    second_menu.add_command(label="Infos pas utiles mdrr", command=show_useless)
+    second_menu.add_command(label="Usefull Info", command=show_about)
+    second_menu.add_command(label="Useless Info", command=show_useless)
 
     mainmenu.add_cascade(label="Menu Principal", menu=first_menu)
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
@@ -520,8 +516,8 @@ def ratecompound():
     first_menu.add_separator()
     first_menu.add_command(label="Quitter", command=ratecompound.quit)
     second_menu = tkinter.Menu(mainmenu, tearoff=0)
-    second_menu.add_command(label="Infos utiles", command=show_about)
-    second_menu.add_command(label="Infos pas utiles mdrr", command=show_useless)
+    second_menu.add_command(label="Usefull Info", command=show_about)
+    second_menu.add_command(label="Useless Info", command=show_useless)
 
     mainmenu.add_cascade(label="Menu Principal", menu=first_menu)
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
@@ -591,8 +587,8 @@ def ratesimple():
     first_menu.add_separator()
     first_menu.add_command(label="Quitter", command=ratesimple.quit)
     second_menu = tkinter.Menu(mainmenu, tearoff=0)
-    second_menu.add_command(label="Infos utiles", command=show_about)
-    second_menu.add_command(label="Infos pas utiles mdrr", command=show_useless)
+    second_menu.add_command(label="Usefull Info", command=show_about)
+    second_menu.add_command(label="Useless Info", command=show_useless)
 
     mainmenu.add_cascade(label="Menu Principal", menu=first_menu)
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
@@ -611,7 +607,7 @@ def rateacturial():
     PV = randint(1000, 50000)
     years = randint(2, 15)
     rate = (round(randint(1, 20)) / 100)
-    check3 = round((PV * (1 + years + rate)), 2)
+    check3 = round(PV * ((1 + rate) ** years), 2)
 
     rateacturial.title("Rate Acturial")
     rateacturial.geometry("1080x720")
@@ -622,11 +618,7 @@ def rateacturial():
     mainframe.pack(expand=YES)
 
     test3 = tkinter.Label(mainframe,
-                          text="You have money lying around in your bank account and decide to make an investment.\n So you decide to call the bank " + str(
-                              entreprise) + "\nThis company offers you an initial investment of " + str(
-                              PV) + " $ for " + str(
-                              years) + " years" + "\nAt the end of the investment you will have " + str(
-                              check3) + " $\n What was the interest rate of the investment ?\nRound to the nearest unit\n",
+                          text="NOT WORKING FOR THE MOMENT, STILL IN DEV\n\nArithmetic Rate is equal to "+str(rate*100)+ " %\nTimes is equal to " + str(years)+" years\nYour initial investement is "+str(PV) + " $\n\nCalculate the Acturial Rate",
                           font=("ARIAL_BLUR", 20))
     test3.pack()
 
@@ -660,8 +652,8 @@ def rateacturial():
     first_menu.add_separator()
     first_menu.add_command(label="Quitter", command=rateacturial.quit)
     second_menu = tkinter.Menu(mainmenu, tearoff=0)
-    second_menu.add_command(label="Infos utiles", command=show_about)
-    second_menu.add_command(label="Infos pas utiles mdrr", command=show_useless)
+    second_menu.add_command(label="Usefull Info", command=show_about)
+    second_menu.add_command(label="Useless Info", command=show_useless)
 
     mainmenu.add_cascade(label="Menu Principal", menu=first_menu)
     mainmenu.add_cascade(label="A Propos", menu=second_menu)
