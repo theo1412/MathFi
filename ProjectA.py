@@ -277,7 +277,7 @@ def covidpage():
     def checkresult():
 
         erreur = choice(listeerreur)
-        check3 = round(PV * ((1 + rate) ** years), 2)
+        check3 = round((PV * ((1 + rate) ** years)), 2)
         if str(entry.get()) == str(check3):
             resultshow = "That's the good anwser"
         else:
@@ -536,7 +536,7 @@ def ratesimple():
     PV = randint(1000, 50000)
     years = randint(2, 15)
     rate = (round(randint(1, 20)) / 100)
-    check3 = round((PV * (1 + years + rate)), 2)
+    check3 = round((PV * (1 + years * rate)), 2)
 
     ratesimple.title("Simple Interest Years")
     ratesimple.geometry("1080x720")
